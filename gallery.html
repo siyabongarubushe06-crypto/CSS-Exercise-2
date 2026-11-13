@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Gallery</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>Image Gallery</h1>
+    </header>
+
+    
+    <nav class="filters">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="landscapes">Landscapes</button>
+        <button class="filter-btn" data-filter="portraits">Portraits</button>
+        <button class="filter-btn" data-filter="architecture">Architecture</button>
+    </nav>
+
+    
+    <main class="gallery">
+
+        
+        <article class="card" data-category="landscapes">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Mountains" alt="Mountains">
+                <div class="overlay"><p>Snow-capped peaks at sunrise.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Mountains</h2>
+                <span class="tag">Landscapes</span>
+            </div>
+        </article>
+
+        <article class="card" data-category="landscapes">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Beach" alt="Beach">
+                <div class="overlay"><p>A quiet beach with golden sand.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Beach</h2>
+                <span class="tag">Landscapes</span>
+            </div>
+        </article>
+
+        <article class="card" data-category="landscapes">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Forest" alt="Forest">
+                <div class="overlay"><p>Tall trees and morning mist.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Forest</h2>
+                <span class="tag">Landscapes</span>
+            </div>
+        </article>
+
+        <article class="card" data-category="landscapes">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Desert" alt="Desert">
+                <div class="overlay"><p>Rolling dunes under a hot sun.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Desert</h2>
+                <span class="tag">Landscapes</span>
+            </div>
+        </article>
+
+        
+        <article class="card" data-category="portraits">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Smile" alt="Smile">
+                <div class="overlay"><p>A warm, natural smile.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Smile</h2>
+                <span class="tag">Portraits</span>
+            </div>
+        </article>
+
+        <article class="card" data-category="portraits">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Elder" alt="Elder">
+                <div class="overlay"><p>Wisdom shown in every line.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Elder</h2>
+                <span class="tag">Portraits</span>
+            </div>
+        </article>
+
+        <article class="card" data-category="portraits">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Child" alt="Child">
+                <div class="overlay"><p>Curious eyes full of wonder.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Child</h2>
+                <span class="tag">Portraits</span>
+            </div>
+        </article>
+
+        <article class="card" data-category="portraits">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Artist" alt="Artist">
+                <div class="overlay"><p>An artist at work in the studio.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Artist</h2>
+                <span class="tag">Portraits</span>
+            </div>
+        </article>
+
+        
+        <article class="card" data-category="architecture">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Skyscraper" alt="Skyscraper">
+                <div class="overlay"><p>Glass and steel reaching the clouds.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Skyscraper</h2>
+                <span class="tag">Architecture</span>
+            </div>
+        </article>
+
+        <article class="card" data-category="architecture">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Old+Church" alt="Old Church">
+                <div class="overlay"><p>A historic church with stone arches.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Old Church</h2>
+                <span class="tag">Architecture</span>
+            </div>
+        </article>
+
+        <article class="card" data-category="architecture">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Bridge" alt="Bridge">
+                <div class="overlay"><p>A suspension bridge at dusk.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Bridge</h2>
+                <span class="tag">Architecture</span>
+            </div>
+        </article>
+
+        <article class="card" data-category="architecture">
+            <div class="image-wrap">
+                <img src="https://placehold.co/400x300?text=Museum" alt="Museum">
+                <div class="overlay"><p>Modern curves and bold design.</p></div>
+            </div>
+            <div class="card-info">
+                <h2>Museum</h2>
+                <span class="tag">Architecture</span>
+            </div>
+        </article>
+
+    </main>
+
+    <script>
+        const buttons = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.card');
+
+        buttons.forEach(function (button) {
+            button.addEventListener('click', function () {
+
+                
+                buttons.forEach(function (b) { b.classList.remove('active'); });
+                button.classList.add('active');
+
+                const filter = button.dataset.filter;
+
+                cards.forEach(function (card) {
+                    const matches = filter === 'all' || card.dataset.category === filter;
+
+                    if (matches) {
+                        card.classList.remove('hidden');
+                        setTimeout(function () { card.classList.remove('fade-out'); }, 20);
+                    } else {
+                        card.classList.add('fade-out');
+                        setTimeout(function () {
+                            if (card.classList.contains('fade-out')) {
+                                card.classList.add('hidden');
+                            }
+                        }, 300);
+                    }
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
